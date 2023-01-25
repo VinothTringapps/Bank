@@ -8,35 +8,35 @@ package org.example;
 import java.util.Scanner;
 class Bank {
     String accountHolderName;
-    int accountHolderNumer;
+    int accountHolderNumber;
     double accountHolderBalance;
 
 
     Bank(String name, int number, double amount) {
         // constructor for allow user to create
         this.accountHolderName = name;
-        this.accountHolderNumer = number;
+        this.accountHolderNumber = number;
         this.accountHolderBalance = amount;
     }
 
     public void display() {
         System.out.println("Name : " + this.accountHolderName);
-        System.out.println("Account Number :" + this.accountHolderNumer);
+        System.out.println("Account Number :" + this.accountHolderNumber);
         System.out.println("Your Current Balance :" + this.accountHolderBalance);
     }
 
-    public void Deposit(double depositamount) {
-        this.accountHolderBalance += depositamount;
+    public void deposit(double depositAmount) {
+        this.accountHolderBalance += depositAmount;
         display();
     }
 
-    public void Withdraw(double withdrawamount) {
-        if (this.accountHolderBalance - withdrawamount <= 1000) {
+    public void withDraw(double withDrawAmount) {
+        if (this.accountHolderBalance - withDrawAmount <= 1000) {
             System.out.println(this.accountHolderName);
             System.out.println("WithDraw Failed ! \n Your minimum Balance is Low");
         } else {
-            this.accountHolderBalance -= withdrawamount;
-            System.out.println("WithDraw Successfull !");
+            this.accountHolderBalance -= withDrawAmount;
+            System.out.println("WithDraw Successful !");
             display();
         }
     }
@@ -47,8 +47,8 @@ class Bank {
         String name;
         int number;
         double amount;
-        double Depositamount;
-        double Withdrawamount;
+        double depositAmount;
+        double withDrawAmount;
         System.out.print("Enter the Name :");
         name = sc.nextLine();
         System.out.print("\nEnter the Account Number :");
@@ -70,14 +70,14 @@ class Bank {
                 case 1 -> {
                     System.out.println("Deposit :");
                     System.out.println(" Enter the Amount To Deposit :");
-                    Depositamount = sc.nextDouble();
-                    s.Deposit(Depositamount);
+                    depositAmount = sc.nextDouble();
+                    s.deposit(depositAmount);
                 }
                 case 2 -> {
                     System.out.println("WithDraw :");
                     System.out.println("Enter the Amount To Withdraw :");
-                    Withdrawamount = sc.nextDouble();
-                    s.Withdraw(Withdrawamount);
+                    withDrawAmount = sc.nextDouble();
+                    s.withDraw(withDrawAmount);
                 }
                 case 3 -> {
                     System.out.println("Show Details :");

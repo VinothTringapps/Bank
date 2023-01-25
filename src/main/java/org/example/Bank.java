@@ -7,35 +7,35 @@ package org.example;
 //        - A method that returns the current balance of the account."
 import java.util.Scanner;
 class Bank {
-    String AccountHolderName;
-    int AccountHolderNumer;
-    double AccountHolderBalance;
+    String accountHolderName;
+    int accountHolderNumer;
+    double accountHolderBalance;
 
 
     Bank(String name, int number, double amount) {
         // constructor for allow user to create
-        this.AccountHolderName = name;
-        this.AccountHolderNumer = number;
-        this.AccountHolderBalance = amount;
+        this.accountHolderName = name;
+        this.accountHolderNumer = number;
+        this.accountHolderBalance = amount;
     }
 
     public void display() {
-        System.out.println("Name : " + this.AccountHolderName);
-        System.out.println("Account Number :" + this.AccountHolderNumer);
-        System.out.println("Your Current Balance :" + this.AccountHolderBalance);
+        System.out.println("Name : " + this.accountHolderName);
+        System.out.println("Account Number :" + this.accountHolderNumer);
+        System.out.println("Your Current Balance :" + this.accountHolderBalance);
     }
 
     public void Deposit(double depositamount) {
-        this.AccountHolderBalance += depositamount;
+        this.accountHolderBalance += depositamount;
         display();
     }
 
     public void Withdraw(double withdrawamount) {
-        if (this.AccountHolderBalance - withdrawamount <= 1000) {
-            System.out.println(this.AccountHolderName);
+        if (this.accountHolderBalance - withdrawamount <= 1000) {
+            System.out.println(this.accountHolderName);
             System.out.println("WithDraw Failed ! \n Your minimum Balance is Low");
         } else {
-            this.AccountHolderBalance -= withdrawamount;
+            this.accountHolderBalance -= withdrawamount;
             System.out.println("WithDraw Successfull !");
             display();
         }

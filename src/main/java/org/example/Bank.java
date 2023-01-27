@@ -6,6 +6,7 @@ package org.example;
 //        - A method that allows the user to make a withdrawal from the account.
 //        - A method that returns the current balance of the account."
 import java.util.Scanner;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 class Bank {
@@ -22,9 +23,12 @@ class Bank {
     }
 
     public void display() {
-        l.info("Name : " + this.accountHolderName);
-        l.info("Account Number :" + this.accountHolderNumber);
-        l.info("Your Current Balance :" + this.accountHolderBalance);
+
+        l.log(Level.INFO, () ->"Name : " + this.accountHolderName);
+
+        l.log(Level.INFO, () -> "Account Number :" + this.accountHolderNumber);
+        l.log(Level.INFO, () -> "Your Current Balance :" + this.accountHolderBalance);
+
     }
 
     public void deposit(double depositAmount) {

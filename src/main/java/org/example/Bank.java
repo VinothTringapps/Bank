@@ -6,12 +6,14 @@ package org.example;
 //        - A method that allows the user to make a withdrawal from the account.
 //        - A method that returns the current balance of the account."
 import java.util.Scanner;
+import java.util.logging.Logger;
+
 class Bank {
     String accountHolderName;
     int accountHolderNumber;
     double accountHolderBalance;
 
-
+    Logger l=Logger.getLogger("com.api.jar");
     Bank(String name, int number, double amount) {
         // constructor for allow user to create
         this.accountHolderName = name;
@@ -20,9 +22,9 @@ class Bank {
     }
 
     public void display() {
-        System.out.println("Name : " + this.accountHolderName);
-        System.out.println("Account Number :" + this.accountHolderNumber);
-        System.out.println("Your Current Balance :" + this.accountHolderBalance);
+        l.info("Name : " + this.accountHolderName);
+        l.info("Account Number :" + this.accountHolderNumber);
+        l.info("Your Current Balance :" + this.accountHolderBalance);
     }
 
     public void deposit(double depositAmount) {
@@ -32,8 +34,8 @@ class Bank {
 
     public void withDraw(double withDrawAmount) {
         if (this.accountHolderBalance - withDrawAmount <= 1000) {
-            System.out.println(this.accountHolderName);
-            System.out.println("WithDraw Failed ! \n Your minimum Balance is Low");
+            l.info(this.accountHolderName);
+            l.info("WithDraw Failed ! \n Your minimum Balance is Low");
         } else {
             this.accountHolderBalance -= withDrawAmount;
             System.out.println("WithDraw Successful !");
@@ -43,47 +45,47 @@ class Bank {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+        Logger l= Logger.getLogger("com.api.jar");
         String name;
         int number;
         double amount;
         double depositAmount;
         double withDrawAmount;
-        System.out.print("Enter the Name :");
+        l.info("Enter the Name :");
         name = sc.nextLine();
-        System.out.print("\nEnter the Account Number :");
+        l.info("\nEnter the Account Number :");
         number = sc.nextInt();
-        System.out.print("\nEnter the Balance :");
+        l.info("\nEnter the Balance :");
         amount = sc.nextDouble();
 
         Bank s = new Bank(name, number, amount);
 
-        System.out.println("Welcome TO The Bank");
+        l.info("Welcome TO The Bank");
 
         int choice;
         do {
 
-            System.out.println("1.Deposit \n 2.Withdraw \n 3.Show");
-            System.out.print("Enter the Choice :");
+            l.info("1.Deposit \n 2.Withdraw \n 3.Show");
+            l.info("Enter the Choice :");
             choice = sc.nextInt();
             switch (choice) {
                 case 1 -> {
-                    System.out.println("Deposit :");
-                    System.out.println(" Enter the Amount To Deposit :");
+                    l.info("Deposit :");
+                    l.info(" Enter the Amount To Deposit :");
                     depositAmount = sc.nextDouble();
                     s.deposit(depositAmount);
                 }
                 case 2 -> {
-                    System.out.println("WithDraw :");
-                    System.out.println("Enter the Amount To Withdraw :");
+                    l.info("WithDraw :");
+                    l.info("Enter the Amount To Withdraw :");
                     withDrawAmount = sc.nextDouble();
                     s.withDraw(withDrawAmount);
                 }
                 case 3 -> {
-                    System.out.println("Show Details :");
+                    l.info("Show Details :");
                     s.display();
                 }
-                default -> System.out.println("Enter the Correct Choice !");
+                default -> l.info("Enter the Correct Choice !");
 
             }
         } while (choice >= 3);

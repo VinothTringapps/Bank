@@ -6,8 +6,7 @@ package org.example;
 //        - A method that allows the user to make a withdrawal from the account.
 //        - A method that returns the current balance of the account."
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 class Bank {
     String accountHolderName;

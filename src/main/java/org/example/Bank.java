@@ -41,7 +41,7 @@ class Bank {
             l.info("WithDraw Failed ! \n Your minimum Balance is Low");
         } else {
             this.accountHolderBalance -= withDrawAmount;
-            System.out.println("WithDraw Successful !");
+           l.info("WithDraw Successful !");
             display();
         }
     }
